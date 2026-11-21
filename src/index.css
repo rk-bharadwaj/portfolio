@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif !important;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950;
+    background-color: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif !important;
+    line-height: 1.5;
+  }
+
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+}
+
+/* Global enforcement of Apple MacBook typography */
+*, *::before, *::after {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, div, strong, small {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.font-sans {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", system-ui, -apple-system, sans-serif !important;
+}
+
+.font-mono {
+  font-family: "SF Mono", Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Continuous Infinite Running Marquee Ticker */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  animation: marquee 25s linear infinite !important;
+  will-change: transform;
+}
+
+/* High-tech gradient mesh substrate with subtle ambient lighting */
+.ambient-gradient-mesh {
+  background: 
+    radial-gradient(circle 700px at 90% 15%, rgba(6, 182, 212, 0.12), transparent 70%),
+    radial-gradient(circle 600px at 10% 45%, rgba(16, 185, 129, 0.09), transparent 70%),
+    radial-gradient(circle 800px at 85% 75%, rgba(6, 182, 212, 0.1), transparent 70%),
+    radial-gradient(circle 600px at 20% 90%, rgba(99, 102, 241, 0.08), transparent 70%),
+    linear-gradient(180deg, #070b16 0%, #0c1427 30%, #0f172a 60%, #070b14 100%);
+}
+
+/* Circuit trace subtle line background */
+.circuit-grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Glassmorphism Frosted Panels with slate tint and soft borders */
+.slate-glass-card {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.slate-glass-interactive {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slate-glass-interactive:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(6, 182, 212, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.18);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070b16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Hide scrollbar for horizontal scroll tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
