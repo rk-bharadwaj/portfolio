@@ -6,6 +6,7 @@ import { personalInfo } from '../data/portfolioData';
 export default function Navbar({ activeSection, onNavigate }) {
   const [time, setTime] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -40,14 +41,23 @@ export default function Navbar({ activeSection, onNavigate }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 md:px-8 py-3 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/60 transition-all duration-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-        
+
         {/* Natural Brand / Author Title */}
-        <div 
+        <div
           onClick={() => handleNavClick('hero')}
           className="flex items-center gap-3 cursor-pointer group shrink-0"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 border border-slate-700/80 flex items-center justify-center relative overflow-hidden group-hover:border-cyan-400 transition-colors shadow-inner shrink-0">
-            <span className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform shadow-[0_0_8px_#22d3ee]" />
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center relative overflow-hidden group-hover:border-cyan-400 transition-colors shadow-inner shrink-0 p-0.5">
+            {!logoError ? (
+              <img
+                src="/logo.png"
+                alt="Logo"
+                onError={() => setLogoError(true)}
+                className="w-full h-full object-contain rounded-lg"
+              />
+            ) : (
+              <span className="w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform shadow-[0_0_8px_#22d3ee]" />
+            )}
           </div>
           <div>
             <div className="font-sans font-bold text-base sm:text-lg md:text-xl text-white tracking-tight leading-tight group-hover:text-cyan-400 transition-colors whitespace-nowrap">
@@ -67,11 +77,10 @@ export default function Navbar({ activeSection, onNavigate }) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`shrink-0 px-2.5 sm:px-3.5 py-1 text-xs font-sans font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
-                  isActive
-                    ? 'bg-cyan-500 text-slate-950 font-semibold shadow-cyan-glow'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
-                }`}
+                className={`shrink-0 px-2.5 sm:px-3.5 py-1 text-xs font-sans font-medium rounded-full transition-all duration-200 whitespace-nowrap ${isActive
+                  ? 'bg-cyan-500 text-slate-950 font-semibold shadow-cyan-glow'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
               >
                 {item.label}
               </button>
