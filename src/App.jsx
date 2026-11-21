@@ -8,6 +8,7 @@ import InteractiveBench from './components/InteractiveBench';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import InteractiveDotRippleBackground from './components/InteractiveDotRippleBackground';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -85,6 +86,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
